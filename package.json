@@ -1,0 +1,31 @@
+{
+  "name": "react-magic-grid",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "type:deps": "typesync ./package.json",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "clipped build",
+    "watch": "clipped watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "magic-grid": "^3.1.2"
+  },
+  "dependencies": {
+    "@clipped/plugin-react": "^1.3.4",
+    "@clipped/plugin-rollup": "^1.3.5",
+    "@clipped/plugin-typescript": "^1.4.2",
+    "clipped": "^2.6.2",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
+  },
+  "devDependencies": {
+    "@types/react": "^16.7.18",
+    "@types/react-dom": "^16.0.11",
+    "magic-grid": "^3.1.2",
+    "typesync": "^0.4.1"
+  }
+}
