@@ -1,0 +1,24 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "clipped watch",
+    "build": "clipped build",
+    "dev": "clipped dev"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@clipped/plugin-babel": "^1.2.4",
+    "@clipped/plugin-react": "^1.3.4",
+    "@clipped/plugin-webpack": "^1.5.4",
+    "bulma": "^0.7.2",
+    "clipped": "^2.6.2",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-magic-grid": "../"
+  }
+}

@@ -2,7 +2,15 @@
   "name": "react-magic-grid",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/react-magic-grid.cjs.js",
+  "module": "dist/react-magic-grid.es.js",
+  "unpkg": "dist/react-magic-grid.js",
+  "jsdelivr": "dist/react-magic-grid.js",
+  "types": "dist/react-magic-grid.d.ts",
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
   "scripts": {
     "type:deps": "typesync ./package.json",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -14,18 +22,16 @@
   "peerDependencies": {
     "magic-grid": "^3.1.2"
   },
-  "dependencies": {
+  "devDependencies": {
     "@clipped/plugin-react": "^1.3.4",
     "@clipped/plugin-rollup": "^1.3.5",
     "@clipped/plugin-typescript": "^1.4.2",
-    "clipped": "^2.6.2",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0"
-  },
-  "devDependencies": {
     "@types/react": "^16.7.18",
     "@types/react-dom": "^16.0.11",
+    "clipped": "^2.6.2",
     "magic-grid": "^3.1.2",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
     "typesync": "^0.4.1"
   }
 }

@@ -6,7 +6,7 @@ import {MagicGridProps, MagicGridState} from './MagicGrid.type'
 class MagicGrid extends React.Component<MagicGridProps, MagicGridState> {  
   state = {
     started: false,
-    items: new HTMLCollection()
+    items: document.createElement("div").getElementsByClassName('noClassHere')
   }
 
   private wrapperRef: React.RefObject<HTMLDivElement> = React.createRef()
