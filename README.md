@@ -1,9 +1,9 @@
-# React-Magic-Grid
+# magic-grid-react
 
-[![GitHub forks](https://img.shields.io/github/forks/IniZio/React-Magic-Grid.svg)](https://github.com/IniZio/React-Magic-Grid/network)
-[![GitHub stars](https://img.shields.io/github/stars/IniZio/React-Magic-Grid.svg)](https://github.com/IniZio/React-Magic-Grid/stargazers)
-[![GitHub issues](https://img.shields.io/github/issues/IniZio/React-Magic-Grid.svg)](https://github.com/IniZio/React-Magic-Grid/issues)
-[![GitHub license](https://img.shields.io/github/license/IniZio/React-Magic-Grid.svg)](https://github.com/IniZio/React-Magic-Grid/blob/master/LICENSE)
+[![GitHub forks](https://img.shields.io/github/forks/IniZio/magic-grid-react.svg)](https://github.com/IniZio/magic-grid-react/network)
+[![GitHub stars](https://img.shields.io/github/stars/IniZio/magic-grid-react.svg)](https://github.com/IniZio/magic-grid-react/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/IniZio/magic-grid-react.svg)](https://github.com/IniZio/magic-grid-react/issues)
+[![GitHub license](https://img.shields.io/github/license/IniZio/magic-grid-react.svg)](https://github.com/IniZio/magic-grid-react/blob/master/LICENSE)
 
 This is a React.js port of @[e-oj's](https://github.com/e-oj) [Magic Grid](https://github.com/e-oj/Magic-Grid).
 Please check the `/example` folder for a example.
@@ -13,11 +13,11 @@ If you use images, make sure they have a set height, otherwise the grid will cal
 ### Setup
 Install the component
 ```js
-$ npm i react-magic-grid
+$ npm i magic-grid-react
 ```
 
 ```jsx
-import MagicGrid from 'react-magic-grid'
+import MagicGrid from 'magic-grid-react'
 
 <MagicGrid>
   {posts.map(post => (

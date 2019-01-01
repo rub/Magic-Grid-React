@@ -1,5 +1,5 @@
 import React from 'react'
-import MagicGrid from 'react-magic-grid'
+import MagicGrid from 'magic-grid-react'
 
 import Card from './Card'
 

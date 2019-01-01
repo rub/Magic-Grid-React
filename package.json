@@ -2,11 +2,11 @@
   "name": "magic-grid-react",
   "version": "0.1.0",
   "description": "",
-  "main": "dist/react-magic-grid.cjs.js",
-  "module": "dist/react-magic-grid.es.js",
-  "unpkg": "dist/react-magic-grid.js",
-  "jsdelivr": "dist/react-magic-grid.js",
-  "types": "dist/react-magic-grid.d.ts",
+  "main": "dist/magic-grid-react.cjs.js",
+  "module": "dist/magic-grid-react.es.js",
+  "unpkg": "dist/magic-grid-react.js",
+  "jsdelivr": "dist/magic-grid-react.js",
+  "types": "dist/magic-grid-react.d.ts",
   "files": [
     "dist"
   ],
