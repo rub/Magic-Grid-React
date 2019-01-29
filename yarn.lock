@@ -4678,10 +4678,10 @@ lru-cache@^5.1.1:
   dependencies:
     yallist "^3.0.2"
 
-magic-grid@^3.1.2:
-  version "3.1.2"
-  resolved "https://registry.yarnpkg.com/magic-grid/-/magic-grid-3.1.2.tgz#d24dfb49de92e22ac00cbd44c19994ed6afae21f"
-  integrity sha512-q0ejbJaa9InzmiHqKr22zey+eFfjccNTRAm5S5zGzypgHztDKGodo2DiDcwg/902fdIsY754RX2UWSUyco25QQ==
+magic-grid@^3.2.4:
+  version "3.2.4"
+  resolved "https://registry.yarnpkg.com/magic-grid/-/magic-grid-3.2.4.tgz#3770740fa46b6c6da25b551ac77fca4754068d23"
+  integrity sha512-zdV8b4q3YpmWZKLcbbfKisxAWlYF9S2dguCi3LR9pq59yq2pl140td4ViwDqYkZGZ6TP+B7YaExaVE3YNqN7/g==
 
 magic-string@^0.25.1:
   version "0.25.1"

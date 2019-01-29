@@ -1,7 +1,7 @@
 import React from 'react'
 
-const Card = ({title, body}) => (
-  <div className="card large">
+const Card = ({title, body, ...props}) => (
+  <div className="card large" {...props}>
     <div className="card-image">
       <figure className="image">
         <img src="https://raw.githubusercontent.com/imlinus/Vue-Magic-Grid/master/test/src/assets/foo.jpg" alt="Image"/>

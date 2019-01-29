@@ -20,7 +20,7 @@
   "author": "",
   "license": "ISC",
   "peerDependencies": {
-    "magic-grid": "^3.1.2"
+    "magic-grid": "^3.2.4"
   },
   "devDependencies": {
     "@clipped/plugin-react": "^1.3.4",
@@ -29,7 +29,7 @@
     "@types/react": "^16.7.18",
     "@types/react-dom": "^16.0.11",
     "clipped": "^2.6.2",
-    "magic-grid": "^3.1.2",
+    "magic-grid": "^3.2.4",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "typesync": "^0.4.1"

@@ -1,157 +1,106 @@
 import * as React from 'react'
-import * as PropTypes from 'prop-types'
+import MagicGrid, {MagicGridProps} from 'magic-grid'
 
-import {MagicGridProps, MagicGridState} from './MagicGrid.type'
+class RevokableMagicGrid extends MagicGrid {
+  revoke() {}
+  
+  listen() {
+    if (this.ready()) {
+      let revokeTimeout: any
 
-class MagicGrid extends React.Component<MagicGridProps, MagicGridState> {  
-  state = {
-    started: false,
-    items: document.createElement("div").getElementsByClassName('noClassHere')
+      // @ts-ignore
+      const positionHandler = () => {
+        if (!revokeTimeout) {
+          revokeTimeout = setTimeout(() => {
+            this.positionItems();
+            revokeTimeout = null;
+          }, 200);
+        }
+      }
+
+      window.addEventListener("resize", positionHandler);
+
+      this.revoke = () => {
+        window.removeEventListener('resize', positionHandler)
+        if (revokeTimeout) {
+          revokeTimeout()
+        }
+        this.revoke = () => {}
+      }
+
+      this.positionItems();
+    }
+    // @ts-ignore
+    else this.getReady();
   }
+}
 
+export interface MagicGridComponentProps extends MagicGridProps {
+  children?: React.ReactNode
+}
+
+class MagicGridComponent extends React.Component<MagicGridComponentProps> {  
+  private gridInstance?: RevokableMagicGrid
   private wrapperRef: React.RefObject<HTMLDivElement> = React.createRef()
 
-  componentDidMount() {
-    this.waitUntilReady()
-  }
+  componentDidMount = this.recreateInstance
 
-  waitUntilReady() {
-    if (this.isReady()) {
-      this.positionItems()
-
-      window.addEventListener('resize', () => {
-        setTimeout(this.positionItems, 200)
-      })
-    } else this.getReady()
-  }
-
-  isReady() {
-    return this.wrapperRef.current && this.state.items.length > 0
-  }
-
-  getReady () {
-    const interval = setInterval(() => {
-      if (this.wrapperRef.current) {
-        this.setState({items: this.wrapperRef.current.children})
+  componentDidUpdate(prevProps: MagicGridComponentProps) {
+    if (this.props.children !== prevProps.children && this.gridInstance) {
+      if (this.gridInstance) {
+        this.gridInstance.positionItems()
       }
-
-      if (this.isReady()) {
-        clearInterval(interval)
-        this.init()
-      }
-    }, 100)
+    } else if (this.props !== prevProps) {
+      this.recreateInstance()
+      return
+    }
   }
 
-  init() {
-    if (!this.isReady() || this.state.started) return
+  componentWillUnmount = this.revokeInstance
 
+  private revokeInstance() {
+    if (this.gridInstance) {
+      this.gridInstance.revoke()
+
+      this.gridInstance = undefined
+    }
+  }
+
+  private recreateInstance() {
     if (this.wrapperRef.current) {
-      this.wrapperRef.current.style.position = 'relative'
-    }
+      this.revokeInstance()
+      
+      const {children, ...config} = {
+        container: this.wrapperRef.current,
+        items: (!this.props.static && this.props.children) ? ([] as React.ReactNode[]).concat(this.props.children).length : undefined,
+        ...this.props
+      }
 
-    if (this.state.items) {
-      Array.prototype.forEach.call(this.state.items, (item: HTMLElement) => {
-        item.style.position = 'absolute'
-        item.style.maxWidth = this.props.maxColWidth + 'px'
-        if (this.props.animate) item.style.transition = 'top, left 0.2s ease'
-      })
-    }
+      if (config.static || (config.items && config.items > 0)) {
+        try {
+          this.gridInstance = new RevokableMagicGrid(config)
 
-    this.setState({started: true}, this.waitUntilReady)
-  }
+          setTimeout(() => {
+            if (this.gridInstance) {
+              this.gridInstance.positionItems()
+            }
+          }, 500)
 
-  colWidth () {
-    if (this.state.items && this.state.items![0] && this.state.items![0]!.getBoundingClientRect().width) {
-      return this.props.gap + this.state.items![0]!.getBoundingClientRect()!.width
-    } else return 0
-  }
-
-  setup () {
-    let width = this.wrapperRef.current!.getBoundingClientRect().width
-    let numCols = Math.floor(width / this.colWidth()) || 1
-    let cols = []
-
-    if (this.props.maxCols && numCols > this.props.maxCols) {
-      numCols = this.props.maxCols
-    }
-
-    for (let i = 0; i < numCols; i++) {
-      cols[i] = {
-        height: 0,
-        top: 0,
-        index: i
+          this.gridInstance.listen()
+        } catch(e) {
+          console.error(e)
+        }
       }
     }
-
-    let wSpace = width - numCols * this.colWidth() + this.props.gap
-
-    return {
-      cols,
-      wSpace
-    }
-  }
-
-  nextCol (cols: any[], i: number) {
-    if (this.props.useMin) return this.getMin(cols)
-
-    return cols[i % cols.length]
-  }
-
-  positionItems () {
-    let {cols, wSpace} = this.setup()
-
-    wSpace = Math.floor(wSpace / 2)
-
-    Array.prototype.forEach.call(this.state.items, (item: HTMLElement, i: any) => {
-      let min = this.nextCol(cols, i)
-      let left = min.index * this.colWidth() + wSpace
-
-      item.style.left = left + 'px'
-      item.style.top = min.height + min.top + 'px'
-
-      min.height += min.top + item.getBoundingClientRect().height
-      min.top = this.props.gap
-    })
-
-    this.wrapperRef.current!.style!.height = this.getMax(cols).height + 'px'
-  }
-
-  getMax (cols: any[]) {
-    let max = cols[0]
-
-    for (let col of cols) {
-      if (col.height > max.height) max = col
-    }
-
-    return max
-  }
-
-  getMin (cols: any[]) {
-    let min = cols[0]
-
-    for (let col of cols) {
-      if (col.height < min.height) min = col
-    }
-
-    return min
   }
 
   render() {
-    return <div ref={this.wrapperRef}>{this.props.children}</div>
+    return <div ref={this.wrapperRef} className="magic-grid">{this.props.children}</div>
   }
 }
 
 // @ts-ignore
-MagicGrid.propTypes = {
-  gap: PropTypes.number,
-  maxCols: PropTypes.number,
-  maxColWidth: PropTypes.number,
-  useMin: PropTypes.bool,
-  animate: PropTypes.bool
-}
-
-// @ts-ignore
-MagicGrid.defaultProps = {
+MagicGridComponent.defaultProps = {
   gap: 32,
   maxCols: 5,
   maxColWidth: 280,
@@ -159,4 +108,5 @@ MagicGrid.defaultProps = {
   animate: true
 }
 
-export default MagicGrid
+export * from 'magic-grid'
+export default MagicGridComponent

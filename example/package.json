@@ -17,8 +17,9 @@
     "@clipped/plugin-webpack": "^1.5.4",
     "bulma": "^0.7.2",
     "clipped": "^2.6.2",
+    "magic-grid": "^3.2.4",
+    "magic-grid-react": "../",
     "react": "^16.7.0",
-    "react-dom": "^16.7.0",
-    "magic-grid-react": "../"
+    "react-dom": "^16.7.0"
   }
 }

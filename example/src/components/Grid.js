@@ -25,6 +25,7 @@ class Grid extends React.Component {
           <MagicGrid>
             {posts.map(post => (
               <Card
+                style={{maxWidth: 200}}
                 key={post.id}
                 title={post.title}
                 body={post.body}

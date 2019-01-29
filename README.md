@@ -13,7 +13,7 @@ If you use images, make sure they have a set height, otherwise the grid will cal
 ### Setup
 Install the component
 ```js
-$ npm i magic-grid-react
+$ npm i magic-grid-react magic-grid
 ```
 
 ```jsx
@@ -22,6 +22,7 @@ import MagicGrid from 'magic-grid-react'
 <MagicGrid>
   {posts.map(post => (
     <Card
+      style={{maxWidth: 200}}
       key={post.id}
       title={post.title}
       body={post.body}
@@ -31,10 +32,14 @@ import MagicGrid from 'magic-grid-react'
 ```
 
 ### Props
+
+Supports all optinons in [Magic-Grid](https://github.com/e-oj/Magic-Grid#magicgridconfig)
+
+#### Default Props: 
+
 | Prop        | Default   | Comment                    |
 |:------------|:----------|:---------------------------|
 | gap         | `32`      | _Gap between elements_     |
 | maxCols     | `5`       | _Max number of colums_     |
-| maxColWidth | `280`     | _Max width of columns_     |
 | useMin      | `false`   | _Use min width of columns_ |
 | animate     | `false`   | _Animate item positioning_ |
