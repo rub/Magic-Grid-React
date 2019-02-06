@@ -6,7 +6,7 @@
   "module": "dist/magic-grid-react.es.js",
   "unpkg": "dist/magic-grid-react.js",
   "jsdelivr": "dist/magic-grid-react.js",
-  "types": "dist/magic-grid-react.d.ts",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
