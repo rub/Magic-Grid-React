@@ -28,10 +28,14 @@
     "@clipped/plugin-typescript": "^1.4.2",
     "@types/react": "^16.7.18",
     "@types/react-dom": "^16.0.11",
+    "@types/react-resize-detector": "^3.1.0",
     "clipped": "^2.6.2",
     "magic-grid": "^3.2.4",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "typesync": "^0.4.1"
+  },
+  "dependencies": {
+    "react-resize-detector": "^3.4.0"
   }
 }

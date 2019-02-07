@@ -5,7 +5,8 @@ import Card from './Card'
 
 class Grid extends React.Component {
   state = {
-    posts: []
+    posts: [],
+    width: 1000
   }
   
   componentDidMount() {
@@ -17,11 +18,13 @@ class Grid extends React.Component {
   }
 
   render() {
-    const {posts} = this.state
+    const {posts, width} = this.state
     
     return (
       <section class="section">
-        <div class="container">
+        <input value={width} onChange={e => {this.setState({width: Number(e.target.value)})}}/>
+      
+        <div class="container" style={{width}}>
           <MagicGrid>
             {posts.map(post => (
               <Card

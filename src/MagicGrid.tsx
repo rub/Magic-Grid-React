@@ -1,5 +1,6 @@
 import * as React from 'react'
 import MagicGrid, {MagicGridProps} from 'magic-grid'
+import ReactResizeDetector from 'react-resize-detector'
 
 class RevokableMagicGrid extends MagicGrid {
   revoke() {}
@@ -47,9 +48,7 @@ class MagicGridComponent extends React.Component<MagicGridComponentProps> {
 
   componentDidUpdate(prevProps: MagicGridComponentProps) {
     if (this.props.children !== prevProps.children && this.gridInstance) {
-      if (this.gridInstance) {
-        this.gridInstance.positionItems()
-      }
+      this.positionItems()
     } else if (this.props !== prevProps) {
       this.recreateInstance()
       return
@@ -57,6 +56,14 @@ class MagicGridComponent extends React.Component<MagicGridComponentProps> {
   }
 
   componentWillUnmount = this.revokeInstance
+
+  private positionItems = () => {
+    console.log('gonna reposition')
+    
+    if (this.gridInstance) {
+      this.gridInstance.positionItems()
+    }
+  }
 
   private revokeInstance() {
     if (this.gridInstance) {
@@ -95,7 +102,20 @@ class MagicGridComponent extends React.Component<MagicGridComponentProps> {
   }
 
   render() {
-    return <div ref={this.wrapperRef} className="magic-grid">{this.props.children}</div>
+    return (
+      <ReactResizeDetector
+        render={() => {
+          this.positionItems()
+          return (
+            <div ref={this.wrapperRef} className="magic-grid" style={{width: '100%'}}>
+              {this.props.children}
+            </div>
+          )
+        }}
+        handleWidth
+        skipOnMount
+      />
+    )
   }
 }
 
