@@ -4,7 +4,7 @@ import ReactResizeDetector from 'react-resize-detector'
 
 class RevokableMagicGrid extends MagicGrid {
   revoke() {}
-  
+
   listen() {
     if (this.ready()) {
       let revokeTimeout: any
@@ -40,7 +40,7 @@ export interface MagicGridComponentProps extends MagicGridProps {
   children?: React.ReactNode
 }
 
-class MagicGridComponent extends React.Component<MagicGridComponentProps> {  
+class MagicGridComponent extends React.Component<MagicGridComponentProps> {
   private gridInstance?: RevokableMagicGrid
   private wrapperRef: React.RefObject<HTMLDivElement> = React.createRef()
 
@@ -59,7 +59,7 @@ class MagicGridComponent extends React.Component<MagicGridComponentProps> {
 
   private positionItems = () => {
     console.log('gonna reposition')
-    
+
     if (this.gridInstance) {
       this.gridInstance.positionItems()
     }
@@ -76,7 +76,7 @@ class MagicGridComponent extends React.Component<MagicGridComponentProps> {
   private recreateInstance() {
     if (this.wrapperRef.current) {
       this.revokeInstance()
-      
+
       const {children, ...config} = {
         container: this.wrapperRef.current,
         items: (!this.props.static && this.props.children) ? ([] as React.ReactNode[]).concat(this.props.children).length : undefined,
@@ -125,7 +125,7 @@ MagicGridComponent.defaultProps = {
   maxCols: 5,
   maxColWidth: 280,
   useMin: false,
-  animate: true
+  animate: false
 }
 
 export * from 'magic-grid'

@@ -35,11 +35,11 @@ import MagicGrid from 'magic-grid-react'
 
 Supports all optinons in [Magic-Grid](https://github.com/e-oj/Magic-Grid#magicgridconfig)
 
-#### Default Props: 
+#### Default Props:
 
 | Prop        | Default   | Comment                    |
 |:------------|:----------|:---------------------------|
-| gap         | `32`      | _Gap between elements_     |
+| gutter      | `32`      | _Gap between elements_     |
 | maxCols     | `5`       | _Max number of colums_     |
 | useMin      | `false`   | _Use min width of columns_ |
 | animate     | `false`   | _Animate item positioning_ |
