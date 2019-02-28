@@ -121,7 +121,7 @@ class MagicGridComponent extends React.Component<MagicGridComponentProps> {
 
 // @ts-ignore
 MagicGridComponent.defaultProps = {
-  gap: 32,
+  gutter: 32,
   maxCols: 5,
   maxColWidth: 280,
   useMin: false,
