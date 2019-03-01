@@ -1,6 +1,6 @@
 {
   "name": "magic-grid-react",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "",
   "main": "dist/magic-grid-react.cjs.js",
   "module": "dist/magic-grid-react.es.js",
