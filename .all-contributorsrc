@@ -1,0 +1,24 @@
+{
+  "projectName": "Magic-Grid-React",
+  "projectOwner": "IniZio",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "amytych",
+      "name": "Arek Mytych",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/998924?v=4",
+      "profile": "http://amytych.github.io",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}
