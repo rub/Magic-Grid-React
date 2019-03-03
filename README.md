@@ -51,7 +51,7 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/all-contri
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
-| [<img src="https://avatars3.githubusercontent.com/u/998924?v=4" width="100px;" alt="Arek Mytych"/><br /><sub><b>Arek Mytych</b></sub>](http://amytych.github.io)<br />[💻](https://github.com/IniZio/Magic-Grid-React/commits?author=amytych "Code") [📖](https://github.com/IniZio/Magic-Grid-React/commits?author=amytych "Documentation") |
+| [<img src="https://avatars3.githubusercontent.com/u/998924?v=4" width="100px;" alt="Arek Mytych"/><br /><sub><b>Arek Mytych</b></sub>](http://amytych.github.io)<br />[💻](https://github.com/IniZio/Magic-Grid-React/commits?author=amytych "Code") [📖](https://github.com/IniZio/Magic-Grid-React/commits?author=amytych "Documentation") [🤔](#ideas-amytych "Ideas, Planning, & Feedback") |
 | :---: |
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
